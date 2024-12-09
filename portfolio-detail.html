@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Detail</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    #portfolio-gallery {
+        width: 80%;
+        margin: 50px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        padding: 20px;
+    }
+
+    .breadcrumb {
+        background-color: #e9ecef;
+        border-radius: 5px;
+        padding: 10px 15px;
+        margin-bottom: 20px;
+    }
+
+    .breadcrumb-item a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .breadcrumb-item a:hover {
+        text-decoration: underline;
+        color: #0056b3;
+    }
+
+    .breadcrumb-item.active {
+        color: #6c757d;
+        font-weight: bold;
+    }
+
+    .swiper-container {
+        overflow: hidden;
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        max-width: 1280px;
+        aspect-ratio: 16 / 9; /* Force 16:9 aspect ratio */
+        object-fit: cover; /* Maintain aspect ratio while filling space */
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .swiper-slide img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+        #portfolio-gallery {
+            width: 90%;
+            margin: 30px auto;
+        }
+
+        .swiper-slide img {
+            max-width: 100%; /* Responsiveness for smaller screens */
+        }
+    }
+</style>
+</head>
+<body>
+  <div class="container mt-5">
+    <!-- Breadcrumb navigation -->
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="index.html#portfolio">Portfolio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Project Detail</li>
+          </ol>
+      </nav>
+  </div>
+
+      <!-- Project Detail Card -->
+      <div id="portfolio-gallery" class="swiper-container">
+          <h2 id="project-title" class="text-center mb-4" style="font-size: 2rem; font-weight: bold;"></h2>
+          <div class="swiper-wrapper">
+              <!-- Gambar-gambar akan dimasukkan secara dinamis dengan JavaScript -->
+          </div>
+          <!-- Tombol navigasi -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <!-- Pagination -->
+      </div>
+
+      <!-- Project Description -->
+      <div class="text-center mt-4">
+          <p id="project-description" style="font-size: 1.1rem; padding: 0 20px;"></p>
+      </div>
+
+      <!-- Project Link -->
+      <div id="project-link" class="project-link text-center"></div>
+
+      <!-- Back to Portfolio Button -->
+      <div class="text-center mt-4">
+          <a href="index.html#portfolio" class="btn btn-back px-4 py-2">Back to Portfolio</a>
+      </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+  <script>
+    // Data proyek dengan multiple images dan link ke proyek
+    const projects = {
+      1: {
+        title: "Web-Scraper-Python",
+        images: [
+          "/assets/portofolio/web-scaraper-python/scrap0.png",
+          "/assets/portofolio/web-scaraper-python/scrap1.png",
+          "/assets/portofolio/web-scaraper-python/scrap2.png",
+          "/assets/portofolio/web-scaraper-python/scrap3.png",
+        ],
+        description: "a Python tool designed to scrape news articles from popular Indonesian news websites, Jawapos.com and Jatim.Tribunnews.com. The scraper extracts headlines, article content, and publication dates, allowing for easy access to news data for research, analysis, or content aggregation.",
+        link: "https://github.com/slayerx-ekx/W3B_N3WS_SCR4P3R",
+      },
+      2: {
+        title: "Cisco-Big-Topology",
+        images: [
+          "/assets/portofolio/cisco-big-topology-networking/cisco0.jpg",
+          "/assets/portofolio/cisco-big-topology-networking/cisco1.png",
+          "/assets/portofolio/cisco-big-topology-networking/cisco2.png",
+        ],
+        description: "This portfolio showcases my ability to design, configure, and troubleshoot Cisco networks. The projects include various topologies, protocols, and network security aspects.",
+        link: null,
+      },
+      3: {
+        title: "Configuration-debian-server",
+        images: [
+          "/assets/portofolio/build-lamp-server-servers/Servers0.png",
+          "/assets/portofolio/build-lamp-server-servers/Servers1.png",
+        ],
+        description: ": Melalui portofolio ini, saya ingin menunjukkan kemampuan saya dalam membangun dan mengelola lingkungan pengembangan web berbasis LAMP di platform Debian. Proyek-proyek di dalamnya mencakup konfigurasi server web, database, dan aplikasi PHP.",
+        link: null,
+      },
+      4: {
+        title: "SIMPLE-ALARM-PROJECT",
+        images: [
+          "assets/portofolio/simple-alarm-project/alarm0.png",
+          "assets/portofolio/simple-alarm-project/alarm1.png",
+          "assets/portofolio/simple-alarm-project/alarm2.png",
+          "assets/portofolio/simple-alarm-project/alarm3.png",
+        ],
+        description: ": Portofolio ini menunjukkan pemahaman saya terhadap konsep pemrograman berorientasi objek, GUI, dan penanganan waktu dalam Python. Semua fitur alarm diimplementasikan menggunakan library PyQt5.",
+        link: "https://github.com/slayerx-ekx/SIMPLE-ALARM-PROJECT",
+      },
+      5: {
+        title: "TEXT-TO-SPEECH-TOOLS",
+        images: [
+          "assets/portofolio/text-to-speech/speech0.png",
+          "assets/portofolio/text-to-speech/speech1.png",
+        ],
+        description: ": Portofolio ini menunjukkan pemahaman saya terhadap konsep pemrograman berorientasi objek, GUI, dan penanganan waktu dalam Python. Semua fitur alarm diimplementasikan menggunakan library PyQt5 dan Edge TTS.",
+        link: "https://github.com/slayerx-ekx/T3XT_T0_SP33CH_T00LS.git",
+      },
+      6: {
+        title: "Website-mikroitk-design",
+        images: [
+          "assets/portofolio/mikrotik-web-desain/mikro0.png",
+          "assets/portofolio/mikrotik-web-desain/mikro1.png",
+          "assets/portofolio/mikrotik-web-desain/mikro2.png",
+          "assets/portofolio/mikrotik-web-desain/mikro3.png",
+          "assets/portofolio/mikrotik-web-desain/mikro4.png",
+          "assets/portofolio/mikrotik-web-desain/mikro5.png",
+        ],
+        description: ": Portofolio ini adalah desain sebuah website bertema sebuah router mikrotik.",
+        link: "https://www.behance.net/gallery/214351623/Website-UI-Design-Mikrotik-Router/modules/1219717777",
+      },
+    };
+
+    // Mendapatkan parameter ID dari URL
+    const params = new URLSearchParams(window.location.search);
+    const projectId = params.get("id");
+    const project = projects[projectId];
+
+    if (project) {
+      const swiperWrapper = document.querySelector(".swiper-wrapper");
+      const projectTitle = document.getElementById("project-title");
+      const projectDescription = document.getElementById("project-description");
+      const projectLink = document.getElementById("project-link");
+
+      // Set judul proyek
+      projectTitle.textContent = project.title;
+
+      // Set deskripsi proyek
+      projectDescription.textContent = project.description;
+
+      // Tampilkan gambar-gambar di slider
+      project.images.forEach((image) => {
+        swiperWrapper.innerHTML += `
+          <div class="swiper-slide">
+            <a href="${image}" data-fancybox="gallery">
+              <img src="${image}" alt="${project.title}">
+            </a>
+          </div>
+        `;
+      });
+
+      // Tambahkan link proyek jika ada
+      if (project.link) {
+        projectLink.innerHTML = `
+          <p>View the project: <a href="${project.link}" target="_blank">${project.link}</a></p>
+        `;
+      }
+
+      // Inisialisasi Swiper
+      const swiper = new Swiper(".swiper-container", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // Inisialisasi Fancybox
+      Fancybox.bind("[data-fancybox='gallery']", {
+        Thumbs: false,
+      });
+    } else {
+      document.body.innerHTML = `
+        <div class="text-center mt-5">
+          <h1 class="display-4 text-danger">Project not found</h1>
+          <p class="lead">The project you are looking for does not exist.</p>
+          <a href="index.html" class="btn btn-primary px-4 py-2">Back to Portfolio</a>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
